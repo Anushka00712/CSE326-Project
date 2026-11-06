@@ -9,6 +9,7 @@ A frontend website project for a handmade soap and skincare boutique.
 - Brand mission section
 - Ingredient information cards
 - "Why Choose Us" section
+- Exciting deals section
 - Upcoming products lineup
 - Custom gift box builder with four soap selections, ribbon choices and a gift message
 - Light and dark mode toggle (starts in light mode)
