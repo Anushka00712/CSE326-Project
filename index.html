@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,6 +173,117 @@
       color: var(--muted);
     }
 
+    /* Slideshow */
+
+    .slideshow-section {
+      padding: 55px 0;
+    }
+
+    .slideshow {
+      position: relative;
+      max-width: 900px;
+      height: 390px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.7s ease;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 35px 25px 25px;
+      color: white;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    }
+
+    .slide-caption h3 {
+      font-size: 1.7rem;
+      margin-bottom: 5px;
+    }
+
+    .slide-caption p {
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.85);
+      color: #302b29;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .slide-arrow:hover {
+      background: var(--jasmine);
+    }
+
+    .slide-arrow.prev {
+      left: 15px;
+    }
+
+    .slide-arrow.next {
+      right: 15px;
+    }
+
+    .slide-dots {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 50%;
+      background: var(--muted);
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .slide-dot.active {
+      background: var(--accent);
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+
+    /* Products */
+
     .filters {
       display: flex;
       flex-wrap: wrap;
@@ -243,6 +353,8 @@
       font-weight: bold;
     }
 
+    /* Mission and other sections */
+
     .soft-section {
       background: var(--surface);
     }
@@ -257,10 +369,6 @@
 
     .mission strong {
       color: var(--text);
-    }
-
-    .info-card {
-      border-radius: 18px;
     }
 
     .info-icon {
@@ -301,6 +409,8 @@
       border-radius: 30px;
     }
 
+    /* Gift builder */
+
     .gift-builder {
       max-width: 700px;
       margin: auto;
@@ -330,7 +440,11 @@
       border-radius: 12px;
     }
 
-    select, input {
+    .gift-option input {
+      width: auto;
+    }
+
+    select, input[type="text"] {
       width: 100%;
       padding: 12px;
       border-radius: 10px;
@@ -376,11 +490,21 @@
       section {
         padding: 55px 0;
       }
+
+      .slideshow {
+        height: 280px;
+      }
+
+      .slide-caption h3 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Navigation -->
   <header>
     <nav class="container">
       <a class="logo" href="#">Botanical <span>&</span> Co.</a>
@@ -389,12 +513,15 @@
         <a href="#products">Products</a>
         <a href="#mission">Our Story</a>
         <a href="#gift">Gift Box</a>
-        <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+        <button class="theme-toggle" id="themeToggle">
+          🌙 Dark Mode
+        </button>
       </div>
     </nav>
   </header>
 
   <main>
+
     <!-- Hero -->
     <section class="hero">
       <div class="container">
@@ -408,9 +535,90 @@
       </div>
     </section>
 
+    <!-- Brand Slideshow -->
+    <section class="slideshow-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="eyebrow">A peek behind the bars</p>
+          <h2>The Botanical Experience</h2>
+          <p>From thoughtful ingredients to little handmade creations.</p>
+        </div>
+
+        <div class="slideshow">
+
+          <div class="slide active">
+            <img
+              src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1400&q=85"
+              alt="Natural skincare ingredients and oils"
+            >
+            <div class="slide-caption">
+              <h3>Inspired by Nature</h3>
+              <p>A closer look at the ingredients behind our soaps.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=1400&q=85"
+              alt="Handmade soap-making products and workspace"
+            >
+            <div class="slide-caption">
+              <h3>Behind the Scenes</h3>
+              <p>A glimpse into the world of handmade soap-making.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1400&q=85"
+              alt="Natural skincare and handmade product collection"
+            >
+            <div class="slide-caption">
+              <h3>Our Little Creations</h3>
+              <p>Explore the colours, textures and variety of skincare.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1400&q=85"
+              alt="Beautifully arranged skincare gift products"
+            >
+            <div class="slide-caption">
+              <h3>Made for Gifting</h3>
+              <p>Thoughtful little boxes for someone special.</p>
+            </div>
+          </div>
+
+          <button class="slide-arrow prev"
+            onclick="changeSlide(-1)"
+            aria-label="Previous slide">‹</button>
+
+          <button class="slide-arrow next"
+            onclick="changeSlide(1)"
+            aria-label="Next slide">›</button>
+
+        </div>
+
+        <div class="slide-dots">
+          <button class="slide-dot active"
+            onclick="showSlide(0)" aria-label="Slide 1"></button>
+          <button class="slide-dot"
+            onclick="showSlide(1)" aria-label="Slide 2"></button>
+          <button class="slide-dot"
+            onclick="showSlide(2)" aria-label="Slide 3"></button>
+          <button class="slide-dot"
+            onclick="showSlide(3)" aria-label="Slide 4"></button>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Products -->
     <section id="products">
       <div class="container">
+
         <div class="section-heading">
           <p class="eyebrow">Made in small batches</p>
           <h2>These are our products</h2>
@@ -426,6 +634,7 @@
         </div>
 
         <div class="product-grid">
+
           <article class="product-card" data-concerns="dry sensitive">
             <div class="product-art art-one">🧼</div>
             <div class="product-info">
@@ -461,6 +670,7 @@
               <span class="price">₹210</span>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -468,9 +678,10 @@
     <!-- Mission -->
     <section class="soft-section" id="mission">
       <div class="container">
+
         <div class="section-heading">
           <p class="eyebrow">A little about us</p>
-          <h2>Our mission</h2>
+          <h2>Our Mission</h2>
         </div>
 
         <p class="mission">
@@ -479,19 +690,22 @@
           Our goal is to create handmade products with transparent
           ingredients and a little extra care in every batch.
         </p>
+
       </div>
     </section>
 
     <!-- Ingredients -->
     <section>
       <div class="container">
+
         <div class="section-heading">
           <p class="eyebrow">What's inside matters</p>
-          <h2>Ingredients we love</h2>
+          <h2>Ingredients We Love</h2>
           <p>A closer look at some of the ingredients we use.</p>
         </div>
 
         <div class="info-grid">
+
           <div class="info-card">
             <div class="info-icon">🫒</div>
             <h3>Olive Oil</h3>
@@ -515,19 +729,22 @@
             <h3>Natural Clays</h3>
             <p>Bring natural colour and a distinctive feel to our bars.</p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Why choose us -->
+    <!-- Why Choose Us -->
     <section class="soft-section">
       <div class="container">
+
         <div class="section-heading">
           <p class="eyebrow">The Botanical difference</p>
-          <h2>Why choose us?</h2>
+          <h2>Why Choose Us?</h2>
         </div>
 
         <div class="info-grid">
+
           <div class="info-card">
             <div class="info-icon">🌱</div>
             <h3>Thoughtful Ingredients</h3>
@@ -545,16 +762,18 @@
             <h3>Made for Gifting</h3>
             <p>Create a gift box with your own choice of soaps and ribbon.</p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Upcoming products -->
+    <!-- Upcoming Products -->
     <section>
       <div class="container">
+
         <div class="coming-soon">
           <p class="eyebrow">A little something on the way</p>
-          <h2>Coming soon...</h2>
+          <h2>Coming Soon...</h2>
           <p>Here's a peek at what we're dreaming up next.</p>
 
           <div class="upcoming-list">
@@ -564,22 +783,26 @@
             <span>🧴 Natural Lip Balm</span>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Gift builder -->
+    <!-- Gift Builder -->
     <section class="soft-section" id="gift">
       <div class="container">
+
         <div class="section-heading">
           <p class="eyebrow">A gift made personal</p>
-          <h2>Build your gift box</h2>
+          <h2>Build Your Gift Box</h2>
           <p>Choose four bars and finish with your favourite ribbon.</p>
         </div>
 
         <div class="gift-builder">
-          <h3>Choose your four soaps</h3>
+
+          <h3>Choose Your Four Soaps</h3>
 
           <div class="gift-options">
+
             <label class="gift-option">
               <input type="checkbox" class="gift-soap" value="Oat & Honey Bar">
               Oat & Honey Bar
@@ -599,11 +822,13 @@
               <input type="checkbox" class="gift-soap" value="Lavender Clay Scrub">
               Lavender Clay Scrub
             </label>
+
           </div>
 
           <p class="gift-note" id="giftCount">0 of 4 soaps selected</p>
 
-          <h3>Choose your ribbon</h3>
+          <h3>Choose Your Ribbon</h3>
+
           <select id="ribbon">
             <option value="Botanical Green">Botanical Green</option>
             <option value="Soft Pink">Soft Pink</option>
@@ -611,7 +836,8 @@
             <option value="Peach">Peach</option>
           </select>
 
-          <h3>Gift message (optional)</h3>
+          <h3>Gift Message (Optional)</h3>
+
           <input
             type="text"
             id="giftMessage"
@@ -622,13 +848,19 @@
             Your gift box is waiting to be created!
           </p>
 
-          <button class="button" id="buildGift">Create my gift box</button>
+          <button class="button" id="buildGift">
+            Create My Gift Box
+          </button>
+
           <p class="gift-note" id="giftResult"></p>
+
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
     <p><strong>Botanical & Co.</strong></p>
     <p>Handmade with care, inspired by nature. 🌿</p>
@@ -636,23 +868,34 @@
   </footer>
 
   <script>
-    // Light and dark mode toggle
+
+    // Light and Dark Mode Toggle
+
     const themeToggle = document.getElementById("themeToggle");
 
     themeToggle.addEventListener("click", () => {
       document.body.classList.toggle("dark");
 
       const isDark = document.body.classList.contains("dark");
-      themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+      themeToggle.textContent = isDark
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
     });
 
-    // Product filters
+
+    // Product Filters
+
     const filterButtons = document.querySelectorAll(".filter-btn");
     const products = document.querySelectorAll(".product-card");
 
     filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        filterButtons.forEach(btn => btn.classList.remove("active"));
+
+        filterButtons.forEach(btn =>
+          btn.classList.remove("active")
+        );
+
         button.classList.add("active");
 
         const filter = button.dataset.filter;
@@ -665,11 +908,44 @@
               ? "block"
               : "none";
         });
+
       });
     });
 
-    // Gift box builder
+
+    // Slideshow
+
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".slide-dot");
+
+    function showSlide(index) {
+
+      slides[currentSlide].classList.remove("active");
+      dots[currentSlide].classList.remove("active");
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+    }
+
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    // Automatically change slides every 4.5 seconds
+
+    setInterval(() => {
+      changeSlide(1);
+    }, 4500);
+
+
+    // Gift Box Builder
+
     const soapCheckboxes = document.querySelectorAll(".gift-soap");
+
     const giftCount = document.getElementById("giftCount");
     const giftSummary = document.getElementById("giftSummary");
     const giftResult = document.getElementById("giftResult");
@@ -688,7 +964,9 @@
     }
 
     soapCheckboxes.forEach(checkbox => {
+
       checkbox.addEventListener("change", () => {
+
         const selected = getSelectedSoaps();
 
         if (selected.length > 4) {
@@ -700,33 +978,48 @@
         giftCount.textContent =
           `${selected.length} of 4 soaps selected`;
 
-        const total = selected.reduce((sum, soap) => sum + prices[soap], 0);
+        const total = selected.reduce(
+          (sum, soap) => sum + prices[soap], 0
+        );
 
         giftSummary.textContent = selected.length
           ? `Estimated total: ₹${total}`
           : "Your gift box is waiting to be created!";
 
         giftResult.textContent = "";
+
       });
+
     });
 
+
     document.getElementById("buildGift").addEventListener("click", () => {
+
       const selected = getSelectedSoaps();
 
       if (selected.length !== 4) {
-        giftResult.textContent = "Please choose exactly four soaps first.";
+        giftResult.textContent =
+          "Please choose exactly four soaps first.";
         return;
       }
 
       const ribbon = document.getElementById("ribbon").value;
-      const message = document.getElementById("giftMessage").value.trim();
+
+      const message = document
+        .getElementById("giftMessage")
+        .value.trim();
 
       giftResult.textContent =
         `Your gift box includes ${selected.join(", ")}. ` +
         `Ribbon: ${ribbon}. ` +
-        (message ? `Message: "${message}"` : "No gift message added.") +
+        (message
+          ? `Message: "${message}"`
+          : "No gift message added.") +
         " This is a demo preview.";
+
     });
+
   </script>
+
 </body>
 </html>
