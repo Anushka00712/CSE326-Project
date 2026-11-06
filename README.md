@@ -1,16 +1,18 @@
 # Botanical & Co.
 
-A simple frontend website for a handmade soap and skincare boutique.
+A frontend website project for a handmade soap and skincare boutique.
 
 ## Features
 
-- Product catalog with skin-concern filters
-- Ingredient information section
-- Brand mission and "Why Choose Us" sections
+- Product catalogue with skin-concern filters
+- Image slideshow featuring ingredients, soap-making, products and gift boxes
+- Brand mission section
+- Ingredient information cards
+- "Why Choose Us" section
 - Upcoming products lineup
-- Custom gift box builder with ribbon selection and gift message
+- Custom gift box builder with four soap selections, ribbon choices and a gift message
 - Light and dark mode toggle (starts in light mode)
-- Responsive layout for different screen sizes
+- Responsive layout for mobile and desktop
 
 ## Colour Palette
 
@@ -37,4 +39,4 @@ No installation needed.
 
 ## Project Status
 
-This is a basic frontend prototype. Product details and gift box options are demo content. More features may be added later.
+This is a frontend prototype. Product details, prices, slideshow images and gift box options are sample content. The website does not include backend functionality or real order processing.
