@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botanical & Co. | Handmade Skincare</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #faf9f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+section {
+  padding: 55px 7%;
+}
+
+.hero {
+  background: #e9ede4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  min-height: 330px;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+
+.hero p {
+  color: #666;
+  max-width: 480px;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 220px;
+  text-align: center;
+  font-size: 100px;
+}
+
+.btn {
+  display: inline-block;
+  background: #78866b;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter {
+  padding: 9px 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background: white;
+  cursor: pointer;
+}
+
+.filter.active {
+  background: #78866b;
+  color: white;
+  border-color: #78866b;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-bottom: 18px;
+}
+
+.product-image {
+  height: 140px;
+  background: #e9ede4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.product-info p {
+  font-size: 13px;
+  color: #777;
+  margin: 5px 0;
+}
+
+.product-info button {
+  width: 100%;
+  padding: 9px;
+  margin-top: 10px;
+  background: #78866b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ingredients {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.ingredient-card {
+  background: white;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.ingredient-card .emoji {
+  font-size: 30px;
+}
+
+.ingredient-card p {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.note {
+  margin-top: 20px;
+  padding: 20px;
+  background: #e9ede4;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* SCENT PROFILES */
+
+.scents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.scent-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.scent-card p {
+  color: #777;
+  font-size: 13px;
+}
+
+/* GIFT BUILDER */
+
+.gift-box {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.gift-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.gift-option {
+  padding: 15px;
+  background: #faf9f5;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.gift-option.selected {
+  border: 2px solid #78866b;
+  background: #e9ede4;
+}
+
+.ribbon-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.ribbon {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ribbon.selected {
+  border: 2px solid #78866b;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+.gift-summary {
+  background: #e9ede4;
+  padding: 18px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #e9ede4;
+  color: #666;
+  font-size: 13px;
+}
+
+@media(max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav a {
+    margin: 0 7px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  section {
+    padding: 40px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">BOTANICAL & CO.</div>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#gift">Gift Boxes</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+  <div class="hero-content">
+    <p>SMALL BATCH · HANDMADE · BOTANICAL</p>
+    <h1>A gentler kind of everyday ritual.</h1>
+    <p>
+      Thoughtfully handcrafted cold-process soaps
+      and botanical skincare. Simple ingredients,
+      transparent formulations and little moments
+      of self-care.
+    </p>
+    <a href="#shop" class="btn">Explore Collection →</a>
+  </div>
+
+  <div class="hero-image">🧼🌿</div>
+</section>
+
+<!-- PRODUCT CATALOG -->
+
+<section id="shop">
+  <h2>Shop Handmade Soaps</h2>
+  <p class="subtitle">
+    Find a soap that suits your skincare preferences.
+  </p>
+
+  <div class="filters">
+    <button class="filter active" data-filter="All">All Soaps</button>
+    <button class="filter" data-filter="Dry Skin">Dry Skin</button>
+    <button class="filter" data-filter="Acne Prone">Acne Prone</button>
+    <button class="filter" data-filter="Sensitive Eczema">Sensitive / Eczema</button>
+    <button class="filter" data-filter="Exfoliating Scrub">Exfoliating Scrub</button>
+  </div>
+
+  <div class="products" id="product-list"></div>
+</section>
+
+<!-- INGREDIENTS -->
+
+<section id="ingredients">
+  <h2>Ingredient Transparency</h2>
+  <p class="subtitle">
+    Know what goes into your skincare.
+  </p>
+
+  <div class="ingredients">
+    <div class="ingredient-card">
+      <div class="emoji">🫒</div>
+      <h3>Olive Oil</h3>
+      <p>A traditional soapmaking base oil.</p>
+    </div>
+
+    <div class="ingredient-card">
+      <div class="emoji">🥥</div>
+      <h3>Shea & Coconut</h3>
+      <p>Base oils selected for cleansing and conditioning.</p>
+    </div>
+
+    <div class="ingredient-card">
+      <div class="emoji">🏺</div>
+      <h3>Natural Clays</h3>
+      <p>Mineral-rich clays used for colour and texture.</p>
+    </div>
+
+    <div class="ingredient-card">
+      <div class="emoji">🌼</div>
+      <h3>Botanical Extracts</h3>
+      <p>Plant-derived additions used in selected recipes.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>Our Formulation Promise</h3>
+    <p>
+      Our goal is transparent ingredients, cruelty-free
+      practices and palm-oil-free formulations.
+      Full ingredient and allergen declarations should
+      be provided for every product.
+    </p>
+  </div>
+</section>
+
+<!-- SCENT PROFILES -->
+
+<section id="scents">
+  <h2>Find Your Botanical Mood</h2>
+  <p class="subtitle">
+    Explore our essential oil scent profiles.
+  </p>
+
+  <div class="scents">
+    <div class="scent-card">
+      <h3>💜 Lavender</h3>
+      <p>Calming · Soft · Floral</p>
+      <p>A gentle herbal and floral aroma.</p>
+    </div>
+
+    <div class="scent-card">
+      <h3>🍊 Citrus</h3>
+      <p>Energizing · Fresh · Bright</p>
+      <p>A fresh and uplifting fragrance.</p>
+    </div>
+
+    <div class="scent-card">
+      <h3>🌿 Tea Tree</h3>
+      <p>Clarifying · Herbal · Earthy</p>
+      <p>A crisp and earthy aromatic profile.</p>
+    </div>
+  </div>
+
+  <p class="subtitle" style="margin-top:15px">
+    Scent descriptions are illustrative. Essential oils
+    can cause irritation or allergic reactions.
+  </p>
+</section>
+
+<!-- GIFT BOX BUILDER -->
+
+<section id="gift">
+  <h2>Build Your 4-Bar Gift Box</h2>
+  <p class="subtitle">
+    Create a personalized botanical gift bundle.
+  </p>
+
+  <div class="gift-box">
+
+    <h3>1. Choose Four Soap Bars</h3>
+    <p class="subtitle" id="selection-count">0 / 4 selected</p>
+
+    <div class="gift-products" id="gift-products"></div>
+
+    <h3>2. Choose Your Botanical Ribbon</h3>
+
+    <div class="ribbon-options">
+      <button class="ribbon selected" data-ribbon="Sage Green">
+        🟢 Sage Green
+      </button>
+      <button class="ribbon" data-ribbon="Dusty Rose">
+        🌸 Dusty Rose
+      </button>
+      <button class="ribbon" data-ribbon="Natural Beige">
+        🟤 Natural Beige
+      </button>
+      <button class="ribbon" data-ribbon="Lavender">
+        🟣 Lavender
+      </button>
+    </div>
+
+    <h3>3. Personal Gift Message</h3>
+    <textarea
+      id="gift-message"
+      rows="3"
+      maxlength="120"
+      placeholder="Write your personal message..."
+    ></textarea>
+
+    <div class="gift-summary">
+      <h3>Your Gift Box</h3>
+      <p id="gift-summary">Select four soaps to begin.</p>
+
+      <p style="margin-top:15px">
+        <strong>Total: ₹<span id="gift-total">0</span></strong>
+      </p>
+
+      <button class="btn" onclick="previewGift()">
+        Preview Gift Box
+      </button>
+
+      <p id="gift-feedback" style="font-size:13px;margin-top:10px">
+        Demo only. No orders or payments are processed.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <h3>BOTANICAL & CO.</h3>
+  <p>Handmade with intention. Rooted in nature.</p>
+  <p>© 2026 Botanical & Co. | Demo Website</p>
+</footer>
+
+<script>
+
+// PRODUCT DATABASE (DEMO DATA)
+
+const products = [
+  {
+    name: "Lavender Oat",
+    emoji: "🧼",
+    ingredients: "Oatmeal · Lavender",
+    price: 249,
+    concerns: ["Dry Skin", "Sensitive Eczema"]
+  },
+  {
+    name: "Tea Tree Clay",
+    emoji: "🌿",
+    ingredients: "Tea Tree · Green Clay",
+    price: 269,
+    concerns: ["Acne Prone"]
+  },
+  {
+    name: "Honey & Shea",
+    emoji: "🍯",
+    ingredients: "Shea · Honey",
+    price: 279,
+    concerns: ["Dry Skin", "Sensitive Eczema"]
+  },
+  {
+    name: "Citrus Sunrise",
+    emoji: "🍊",
+    ingredients: "Orange · Calendula",
+    price: 249,
+    concerns: ["Dry Skin"]
+  },
+  {
+    name: "Rose Kaolin",
+    emoji: "🌸",
+    ingredients: "Rose · Pink Clay",
+    price: 269,
+    concerns: ["Sensitive Eczema"]
+  },
+  {
+    name: "Coffee Scrub",
+    emoji: "☕",
+    ingredients: "Coffee · Cocoa Butter",
+    price: 259,
+    concerns: ["Exfoliating Scrub"]
+  }
+];
+
+// DISPLAY PRODUCTS
+
+const productList = document.getElementById("product-list");
+
+function displayProducts(filter = "All") {
+
+  const filtered = products.filter(product => {
+    return filter === "All" ||
+      product.concerns.includes(filter);
+  });
+
+  productList.innerHTML = filtered.map(product => `
+    <div class="product">
+      <div class="product-image">
+        ${product.emoji}
+      </div>
+
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.ingredients}</p>
+        <strong>₹${product.price}</strong>
+
+        <button onclick="addToGift('${product.name}')">
+          Add to Gift Box +
+        </button>
+      </div>
+    </div>
+  `).join("");
+
+}
+
+displayProducts();
+
+// FILTER BUTTONS
+
+document.querySelectorAll(".filter").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    document.querySelectorAll(".filter")
+      .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    displayProducts(button.dataset.filter);
+
+  });
+
+});
+
+// GIFT BOX BUILDER
+
+let selectedProducts = [];
+let selectedRibbon = "Sage Green";
+
+const giftProducts = document.getElementById("gift-products");
+
+function displayGiftProducts() {
+
+  giftProducts.innerHTML = products.map(product => `
+    <button
+      class="gift-option"
+      data-name="${product.name}"
+      onclick="addToGift('${product.name}')">
+
+      ${product.emoji}<br>
+      <strong>${product.name}</strong><br>
+      ₹${product.price}
+
+    </button>
+  `).join("");
+
+}
+
+displayGiftProducts();
+
+// ADD OR REMOVE PRODUCTS
+
+function addToGift(name) {
+
+  if (selectedProducts.includes(name)) {
+
+    selectedProducts = selectedProducts.filter(
+      item => item !== name
+    );
+
+  } else if (selectedProducts.length < 4) {
+
+    selectedProducts.push(name);
+
+  } else {
+
+    document.getElementById("gift-feedback").textContent =
+      "Your box already has four bars. Remove one first.";
+
+    return;
+
+  }
+
+  updateGiftBox();
+
+}
+
+// UPDATE GIFT BOX
+
+function updateGiftBox() {
+
+  document.querySelectorAll(".gift-option").forEach(button => {
+
+    button.classList.toggle(
+      "selected",
+      selectedProducts.includes(button.dataset.name)
+    );
+
+  });
+
+  document.getElementById("selection-count")
+    .textContent = `${selectedProducts.length} / 4 selected`;
+
+  const total = selectedProducts.reduce((sum, name) => {
+
+    const product = products.find(p => p.name === name);
+
+    return sum + product.price;
+
+  }, 0);
+
+  document.getElementById("gift-total").textContent = total;
+
+  document.getElementById("gift-summary").textContent =
+    selectedProducts.length
+      ? selectedProducts.join(" · ")
+      : "Select four soaps to begin.";
+
+}
+
+// RIBBON SELECTION
+
+document.querySelectorAll(".ribbon").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    document.querySelectorAll(".ribbon")
+      .forEach(btn => btn.classList.remove("selected"));
+
+    button.classList.add("selected");
+
+    selectedRibbon = button.dataset.ribbon;
+
+  });
+
+});
+
+// GIFT PREVIEW
+
+function previewGift() {
+
+  const feedback = document.getElementById("gift-feedback");
+
+  if (selectedProducts.length !== 4) {
+
+    feedback.textContent =
+      "Please select exactly four soap bars.";
+
+    return;
+
+  }
+
+  const message =
+    document.getElementById("gift-message").value;
+
+  const total = selectedProducts.reduce((sum, name) => {
+
+    return sum + products.find(p => p.name === name).price;
+
+  }, 0);
+
+  feedback.textContent =
+    `Your ${selectedRibbon} gift box is ready! ` +
+    `Products: ${selectedProducts.join(", ")}. ` +
+    `Message: ${message || "No message added"}. ` +
+    `Total: ₹${total}. Demo preview only.`;
+
+}
+
+</script>
+
+</body>
+</html>
