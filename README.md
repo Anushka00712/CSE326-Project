@@ -80,6 +80,8 @@ Possible future enhancements include:
 ## Project Purpose
 
 Botanical & Co. was created as a web development project to practise front-end development and demonstrate how HTML, CSS, and JavaScript can be combined to build an interactive, visually consistent website.
----
+
+you may visit the website @ https://botanicalco.netlify.app
+--
 
 **Botanical & Co. — Inspired by nature, made with care.**
